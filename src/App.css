@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-image: url("https://images.unsplash.com/photo-1507145569372-d69bae8bc9a0");
+  background-size: cover;
 }
 
 .App-logo {
@@ -23,8 +25,9 @@
 
 .main-container {
   padding: 20%; /*! fix responsive center aligh*/
+  text-align: right;
 }
 
 #main-title {
-  color: #218838;
+  color: #fff;
 }
