@@ -1,7 +1,10 @@
-.App {
-  text-align: center;
+body {
   background-image: url("https://images.unsplash.com/photo-1507145569372-d69bae8bc9a0");
   background-size: cover;
+  background-repeat: no-repeat;
+}
+.App {
+  text-align: center;
 }
 
 .App-logo {
@@ -24,7 +27,7 @@
 }
 
 .main-container {
-  padding: 20%; /*! fix responsive center aligh*/
+  padding: 20%; /*! fix responsive center align*/
   text-align: right;
 }
 
