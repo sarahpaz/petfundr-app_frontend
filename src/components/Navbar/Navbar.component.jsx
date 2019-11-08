@@ -1,16 +1,31 @@
 import React from "react";
-import { Navbar, Nav } from "react-bootstrap";
+import { connect } from "react-redux";
 
-const NavHeader = () => {
+import { Navbar, Nav } from "react-bootstrap";
+import Logout from "../Logout/Logout.component";
+
+const NavHeader = ({ currentUser }) => {
   return (
     <Navbar bg="light" variant="light">
       <Navbar.Brand style={{ color: "#218838" }}>PetFundr</Navbar.Brand>
-      <Nav className="mr-auto">
-        <Nav.Link href="#">Join </Nav.Link>
+      <Nav className="ml-auto">
+        {!currentUser ? <Nav.Link href="#">Join</Nav.Link> : ""}
         <Nav.Link href="#">Donate</Nav.Link>
+        {currentUser ? (
+          <Nav.Link href="#">{currentUser.username}</Nav.Link>
+        ) : (
+          ""
+        )}
+        {currentUser ? <Logout /> : ""}
       </Nav>
     </Navbar>
   );
 };
 
-export default NavHeader;
+const mapStateToProps = ({ currentUser }) => {
+  return {
+    currentUser
+  };
+};
+
+export default connect(mapStateToProps)(NavHeader);
