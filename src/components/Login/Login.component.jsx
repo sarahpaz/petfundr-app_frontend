@@ -20,27 +20,31 @@ const Login = ({ loginFormData, updateLoginForm, login }) => {
   };
 
   return (
-    <form onSubmit={handleOnSubmit}>
-      <input
-        type="text"
-        name="username"
-        value={loginFormData.username}
-        placeholder="username"
-        onChange={handleOnChange}
-      ></input>
-      <br />
-      <input
-        type="password"
-        name="password"
-        value={loginFormData.password}
-        placeholder="password"
-        onChange={handleOnChange}
-      ></input>
-      <br />
-      <Button type="submit" variant="success">
-        Login
-      </Button>
-    </form>
+    <div>
+      <h1 id="main-title">PetFundr</h1>
+      <form onSubmit={handleOnSubmit}>
+        <input
+          type="text"
+          name="username"
+          value={loginFormData.username}
+          placeholder="username"
+          onChange={handleOnChange}
+        ></input>
+        <br />
+        <input
+          type="password"
+          name="password"
+          value={loginFormData.password}
+          placeholder="password"
+          onChange={handleOnChange}
+          style={{ marginTop: "5px" }}
+        ></input>
+        <br />
+        <Button type="submit" variant="success" style={{ marginTop: "15px" }}>
+          Login
+        </Button>
+      </form>
+    </div>
   );
 };
 
