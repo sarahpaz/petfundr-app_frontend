@@ -20,3 +20,11 @@
 .App-link {
   color: #09d3ac;
 }
+
+.main-container {
+  padding: 20%; /*! fix responsive center aligh*/
+}
+
+#main-title {
+  color: #218838;
+}
