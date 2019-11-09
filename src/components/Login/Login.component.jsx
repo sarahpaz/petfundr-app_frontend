@@ -4,6 +4,8 @@ import { updateLoginForm } from "../../actions/loginForm";
 import { login } from "../../actions/currentUser";
 import Button from "react-bootstrap/Button";
 
+import "./Login.styles.css";
+
 const Login = ({ loginFormData, updateLoginForm, login }) => {
   const handleOnChange = e => {
     const { name, value } = e.target;
