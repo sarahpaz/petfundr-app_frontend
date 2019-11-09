@@ -3,6 +3,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
 .App {
   text-align: center;
 }
@@ -26,11 +27,7 @@ body {
   color: #09d3ac;
 }
 
-.main-container {
-  padding: 20%; /*! fix responsive center align*/
+.login-container {
+  padding: 20%; /*TODO Center with flexbox*/
   text-align: right;
-}
-
-#main-title {
-  color: #fff;
 }
