@@ -1,3 +1,4 @@
+import { resetLoginForm } from "./loginForm";
 // syncrhonous action creators - state is updated immediately
 export const setCurrentUser = user => {
   return {
@@ -30,6 +31,7 @@ export const login = credentials => {
           alert(user.error);
         } else {
           dispatch(setCurrentUser(user)); // dispatch action creator
+          dispatch(resetLoginForm());
         }
       })
       .catch(console.log);
@@ -38,7 +40,7 @@ export const login = credentials => {
 
 export const logout = () => {
   return dispatch => {
-    dispatch(clearCurrentUser());
+    dispatch(clearCurrentUser()); // dispatch clears the front end, fetch clears the back end (logout route)
     return fetch("http://localhost:3001/api/v1/logout", {
       credentials: "include",
       method: "DELETE"
