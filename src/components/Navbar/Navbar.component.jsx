@@ -9,8 +9,8 @@ const NavHeader = ({ currentUser }) => {
     <Navbar bg="light" variant="light">
       <Navbar.Brand style={{ color: "#218838" }}>PetFundr</Navbar.Brand>
       <Nav className="ml-auto">
-        {!currentUser ? <Nav.Link href="#">Join</Nav.Link> : ""}
         <Nav.Link href="#">Donate</Nav.Link>
+        {!currentUser ? <button className="btn btn-success"> Join</button> : ""}
         {currentUser ? (
           <Nav.Link href="#">{currentUser.username}</Nav.Link>
         ) : (
