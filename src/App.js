@@ -3,7 +3,7 @@ import "./App.css";
 import { connect } from "react-redux";
 
 import Login from "./components/Login/Login.component";
-// import Logout from "./components/Logout/Logout.component";
+import MainContainer from "./components/MainContainer/MainContainer.component";
 import NavHeader from "./components/Navbar/Navbar.component";
 import { getCurrentUser } from "./actions/currentUser";
 
@@ -16,7 +16,8 @@ class App extends Component {
     return (
       <div className="App">
         <NavHeader />
-        <div className="main-container">
+        {this.props.currentUser ? <MainContainer /> : ""}
+        <div className="login-container">
           {this.props.currentUser ? "" : <Login />}
         </div>
       </div>
