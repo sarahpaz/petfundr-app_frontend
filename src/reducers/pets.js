@@ -6,9 +6,3 @@ export default (state = [], action) => {
       return state;
   }
 };
-
-//  t.string "name"
-//   t.integer "age"
-//   t.string "image"
-//   t.text "cause"
-//   t.integer "goal"

@@ -7,7 +7,9 @@ import { connect } from "react-redux";
 const PetList = props => {
   const petCards = props.pets.map(p => <PetCard pet={p} key={p.id} />);
 
-  return <div>{petCards.length > 0 ? petCards : null}</div>;
+  return (
+    <div className="pet-container">{petCards.length > 0 ? petCards : null}</div>
+  );
 };
 
 const mapStateToProps = state => {

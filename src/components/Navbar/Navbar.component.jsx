@@ -8,16 +8,15 @@ const NavHeader = ({ currentUser }) => {
   return (
     <Navbar bg="light" variant="light">
       <Navbar.Brand style={{ color: "#218838" }}>PetFundr</Navbar.Brand>
-      <Nav className="ml-auto">
-        <Nav.Link href="#">Donate</Nav.Link>
+      <Nav.Link href="/join" className="ml-auto">
         {!currentUser ? <button className="btn btn-success"> Join</button> : ""}
         {currentUser ? (
           <Nav.Link href="#">{currentUser.username}</Nav.Link>
         ) : (
           ""
         )}
-        {currentUser ? <Logout /> : ""}
-      </Nav>
+        {currentUser ? <Logout href="/" /> : ""}
+      </Nav.Link>
     </Navbar>
   );
 };

@@ -22,7 +22,7 @@ const Login = ({ loginFormData, updateLoginForm, login }) => {
   };
 
   return (
-    <div>
+    <div className="login-container">
       <h1 id="main-title">PetFundr</h1>
       <form onSubmit={handleOnSubmit}>
         <input
