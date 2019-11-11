@@ -3,10 +3,12 @@ import thunk from "redux-thunk";
 
 import currentUser from "./reducers/currentUser";
 import loginForm from "./reducers/loginForm";
+import pets from "./reducers/pets";
 
 const reducer = combineReducers({
   currentUser,
-  loginForm
+  loginForm,
+  pets
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
