@@ -1,0 +1,16 @@
+.signup-form h1,
+.signup-form p {
+  color: #fff;
+}
+
+.signup-form {
+  padding: 20%;
+}
+
+input {
+  margin-top: 5px;
+}
+
+.signup-form button {
+  margin-top: 15px;
+}
