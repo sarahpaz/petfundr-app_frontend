@@ -1,5 +1,6 @@
 import { resetLoginForm } from "./loginForm";
 import { getAllPets } from "./pets.js";
+import { resetSignupForm } from "./signupForm";
 // syncrhonous action creators - state is updated immediately
 export const setCurrentUser = user => {
   return {
@@ -91,7 +92,7 @@ export const signup = credentials => {
           alert(user.error);
         } else {
           dispatch(setCurrentUser(user.data));
-          dispatch(resetLoginForm());
+          dispatch(resetSignupForm());
         }
       })
       .catch(console.log);
