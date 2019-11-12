@@ -9,7 +9,6 @@ export const updateSignupForm = formData => {
 export const resetSignupForm = () => {
   return {
     type: "RESET_SIGNUP_FORM"
+    // No payload required because form is being reset
   };
 };
-
-// asynchronous actions creators
