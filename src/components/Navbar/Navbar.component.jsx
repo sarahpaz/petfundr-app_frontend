@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import { Navbar, Nav } from "react-bootstrap";
 import Logout from "../Logout/Logout.component";
+import Button from "react-bootstrap/Button";
 
 const NavHeader = ({ currentUser }) => {
   return (
@@ -11,16 +12,15 @@ const NavHeader = ({ currentUser }) => {
         PetFundr
       </Navbar.Brand>
       <Nav.Link href="/join" className="ml-auto">
-        {!currentUser ? <button className="btn btn-success"> Join</button> : ""}
-        {currentUser ? (
-          <Nav.Link className="ml-auto" href={`/users/${currentUser.id}`}>
-            {currentUser.username}
-          </Nav.Link>
+        {!currentUser ? (
+          <Button type="submit" variant="success">
+            Join
+          </Button>
         ) : (
           ""
         )}
       </Nav.Link>
-      {currentUser ? <Logout href="/" /> : ""}
+      {currentUser ? <Logout /> : ""}
     </Navbar>
   );
 };
