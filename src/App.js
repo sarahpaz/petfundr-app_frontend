@@ -1,13 +1,12 @@
 import React, { Component } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import { connect } from "react-redux";
 
-// import Login from "./components/Login/Login.component";
-// import MainContainer from "./components/MainContainer/MainContainer.component";
 import NavHeader from "./components/Navbar/Navbar.component";
 import { getCurrentUser } from "./actions/currentUser";
 import Signup from "./components/Signup/Signup.component";
+import MainContainer from "./components/MainContainer/MainContainer.component";
 import PetList from "./components/PetListContainer/PetListContainer.component";
 import HomePage from "./components/HomePage/HomePage.component";
 
@@ -22,17 +21,16 @@ class App extends Component {
     return (
       <div className="App">
         <NavHeader />
-        <BrowserRouter>
-          <Switch>
-            <Route
-              exact
-              path="/"
-              render={() => (loggedIn ? <PetList /> : <HomePage />)}
-            />
-            <Route path="/join" component={Signup} />
-            <Route path="/pets" component={PetList} />
-          </Switch>
-        </BrowserRouter>
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => (loggedIn ? <MainContainer /> : <HomePage />)}
+          />
+          <Route path="/join" component={Signup} />
+          <Route path="/pets" component={PetList} />
+          <Route path="/logout" component={HomePage} />
+        </Switch>
       </div>
     );
   }
@@ -40,12 +38,8 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    currentUser: state.currentUser,
     loggedIn: !!state.currentUser
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { getCurrentUser }
-)(App);
+export default connect(mapStateToProps, { getCurrentUser })(App);
