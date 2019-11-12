@@ -1,18 +1,39 @@
 import React from "react";
 import "./PetCard.styles.css";
 import { Link } from "react-router-dom";
+import CardDeck from "react-bootstrap/CardDeck";
+import Card from "react-bootstrap/Card";
 
 const PetCard = ({ pet }) => {
   return (
-    <div className="pet-card">
-      <Link to={`/pets/${pet.id}`}>
-        <h3>{pet.attributes.name}</h3>
-      </Link>
-      <img src={pet.attributes.image} alt={pet.attributes.name} />
-      <p>Age: {pet.attributes.age}</p>
-      <p>Cause: {pet.attributes.cause}</p>
-      <p>Goal: {pet.attributes.goal}</p>
-    </div>
+    <CardDeck
+      style={{
+        width: "25rem",
+        margin: "auto"
+      }}
+    >
+      <Card>
+        <Card.Img
+          variant="top"
+          src={pet.attributes.image}
+          alt={pet.attributes.name}
+        />
+        <Card.Body>
+          <Card.Title>{pet.attributes.name}</Card.Title>
+          <Card.Text>
+            Cause: {pet.attributes.cause} <br />
+            Age: {pet.attributes.age}
+          </Card.Text>
+          <Card.Text>Goal: ${pet.attributes.goal}</Card.Text>
+        </Card.Body>
+        <Card.Footer>
+          <small className="text-muted">
+            Learn more about{" "}
+            <Link to={`/pets/${pet.id}`}>{pet.attributes.name}</Link>
+          </small>
+        </Card.Footer>
+      </Card>
+    </CardDeck>
   );
 };
 
