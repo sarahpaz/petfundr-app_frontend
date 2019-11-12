@@ -16,7 +16,7 @@ export const clearCurrentUser = () => {
 
 // asynchronous action creators -- requests to the backend are required first
 export const login = credentials => {
-  console.log("here are the creds", credentials);
+  // console.log("here are the creds", credentials);
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/login", {
       method: "POST",
@@ -66,6 +66,32 @@ export const getCurrentUser = () => {
         } else {
           dispatch(setCurrentUser(user));
           dispatch(getAllPets()); // dispatch action creator
+        }
+      })
+      .catch(console.log);
+  };
+};
+
+export const signup = credentials => {
+  return dispatch => {
+    const userInfo = {
+      user: credentials
+    };
+    return fetch("http://localhost:3001/api/v1/signup", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(userInfo)
+    })
+      .then(res => res.json())
+      .then(user => {
+        if (user.error) {
+          alert(user.error);
+        } else {
+          dispatch(setCurrentUser(user.data));
+          dispatch(resetLoginForm());
         }
       })
       .catch(console.log);
