@@ -1,3 +1,11 @@
 #main-title {
   color: #fff;
 }
+
+input {
+  margin-top: 5px;
+}
+
+.login-container button {
+  margin-top: 15px;
+}
