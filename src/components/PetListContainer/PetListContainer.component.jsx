@@ -8,7 +8,10 @@ const PetList = props => {
   const petCards = props.pets.map(p => <PetCard pet={p} key={p.id} />);
 
   return (
-    <div className="pet-container">{petCards.length > 0 ? petCards : null}</div>
+    <div className="pet-container">
+      <h3>Meet our Pets in Need</h3>
+      {petCards.length > 0 ? petCards : null}
+    </div>
   );
 };
 
