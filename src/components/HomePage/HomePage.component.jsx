@@ -5,7 +5,6 @@ class HomePage extends Component {
   render() {
     return (
       <div className="homepage-container">
-        {/* <h1>Homepage component</h1> */}
         <Login />
       </div>
     );
