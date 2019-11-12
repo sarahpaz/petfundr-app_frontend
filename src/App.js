@@ -29,7 +29,6 @@ class App extends Component {
           />
           <Route path="/join" component={Signup} />
           <Route path="/pets" component={PetList} />
-          <Route path="/logout" component={HomePage} />
         </Switch>
       </div>
     );
