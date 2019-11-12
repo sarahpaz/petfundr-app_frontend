@@ -7,11 +7,13 @@ import Logout from "../Logout/Logout.component";
 const NavHeader = ({ currentUser }) => {
   return (
     <Navbar bg="light" variant="light">
-      <Navbar.Brand style={{ color: "#218838" }}>PetFundr</Navbar.Brand>
+      <Navbar.Brand style={{ color: "#218838" }} href="/">
+        PetFundr
+      </Navbar.Brand>
       <Nav.Link href="/join" className="ml-auto">
         {!currentUser ? <button className="btn btn-success"> Join</button> : ""}
         {currentUser ? (
-          <Nav.Link className="ml-auto" href="#">
+          <Nav.Link className="ml-auto" href={`/users/${currentUser.id}`}>
             {currentUser.username}
           </Nav.Link>
         ) : (
