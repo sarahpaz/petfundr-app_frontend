@@ -1,3 +1,4 @@
+// syncrhonous action creators - state is updated immediately
 export const updateLoginForm = formData => {
   return {
     type: "UPDATE_LOGIN_FORM",
