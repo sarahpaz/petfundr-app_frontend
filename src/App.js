@@ -3,12 +3,13 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
 import { connect } from "react-redux";
 
-import Login from "./components/Login/Login.component";
-import MainContainer from "./components/MainContainer/MainContainer.component";
+// import Login from "./components/Login/Login.component";
+// import MainContainer from "./components/MainContainer/MainContainer.component";
 import NavHeader from "./components/Navbar/Navbar.component";
 import { getCurrentUser } from "./actions/currentUser";
 import Signup from "./components/Signup/Signup.component";
 import PetList from "./components/PetListContainer/PetListContainer.component";
+import HomePage from "./components/HomePage/HomePage.component";
 
 class App extends Component {
   componentDidMount() {
@@ -16,20 +17,23 @@ class App extends Component {
   }
 
   render() {
+    const { loggedIn } = this.props;
+
     return (
       <div className="App">
         <NavHeader />
         <BrowserRouter>
           <Switch>
-            <Route exact path="/" component={Login} />
+            <Route
+              exact
+              path="/"
+              render={() => (loggedIn ? <PetList /> : <HomePage />)}
+            />
             <Route path="/join" component={Signup} />
-            <Route path="/donate" component={PetList} />
+            <Route path="/pets" component={PetList} />
           </Switch>
         </BrowserRouter>
-        {this.props.currentUser ? <MainContainer /> : ""}
-        {/* <div className="login-container">
-          {this.props.currentUser ? "" : <Login />}
-		</div> */}
+        {/* <h1>App Component</h1> */}
       </div>
     );
   }
@@ -37,7 +41,8 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    loggedIn: !!state.currentUser
   };
 };
 
