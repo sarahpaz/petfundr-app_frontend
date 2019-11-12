@@ -4,6 +4,8 @@ import { updateSignupForm } from "../../actions/signupForm";
 import { signup } from "../../actions/currentUser.js";
 import Button from "react-bootstrap/Button";
 
+import "./Signup.styles.css";
+
 const Signup = ({ signupFormData, updateSignupForm, signup }) => {
   const handleOnChange = e => {
     const { name, value } = e.target;
@@ -20,8 +22,13 @@ const Signup = ({ signupFormData, updateSignupForm, signup }) => {
   };
 
   return (
-    <div className="signup=form">
-      <h2>Join PetFundr</h2>
+    <div className="signup-form">
+      <h1>Join PetFundr</h1>
+      <p>
+        Being a PetFundr member allows you to make donations to help pets
+        undergo medical procedures.
+      </p>
+      <p>Join today, and save a pet.</p>
       <form onSubmit={handleOnSubmit}>
         <input
           type="text"
@@ -39,7 +46,7 @@ const Signup = ({ signupFormData, updateSignupForm, signup }) => {
           onChange={handleOnChange}
         ></input>
         <br />
-        <Button type="submit" variant="success">
+        <Button type="submit" variant="success" style={{ marginTop: "15px" }}>
           Join
         </Button>
       </form>
@@ -53,7 +60,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { updateSignupForm, signup }
-)(Signup);
+export default connect(mapStateToProps, { updateSignupForm, signup })(Signup);
