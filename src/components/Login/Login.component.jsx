@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 
 import "./Login.styles.css";
 
-const Login = ({ loginFormData, updateLoginForm, login, history }) => {
+const Login = ({ loginFormData, updateLoginForm, login }) => {
   const handleOnChange = e => {
     const { name, value } = e.target;
     const updatedFormInfo = {
@@ -18,7 +18,7 @@ const Login = ({ loginFormData, updateLoginForm, login, history }) => {
 
   const handleOnSubmit = e => {
     e.preventDefault();
-    login(loginFormData, history);
+    login(loginFormData);
   };
 
   return (
