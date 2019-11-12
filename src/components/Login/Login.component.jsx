@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 
 import "./Login.styles.css";
 
-const Login = ({ loginFormData, updateLoginForm, login }) => {
+const Login = ({ loginFormData, updateLoginForm, login, history }) => {
   const handleOnChange = e => {
     const { name, value } = e.target;
     const updatedFormInfo = {
@@ -18,7 +18,7 @@ const Login = ({ loginFormData, updateLoginForm, login }) => {
 
   const handleOnSubmit = e => {
     e.preventDefault();
-    login(loginFormData);
+    login(loginFormData, history);
   };
 
   return (
@@ -39,10 +39,9 @@ const Login = ({ loginFormData, updateLoginForm, login }) => {
           value={loginFormData.password}
           placeholder="password"
           onChange={handleOnChange}
-          style={{ marginTop: "5px" }}
         ></input>
         <br />
-        <Button type="submit" variant="success" style={{ marginTop: "15px" }}>
+        <Button type="submit" variant="success">
           Login
         </Button>
       </form>
