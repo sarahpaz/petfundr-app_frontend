@@ -11,12 +11,14 @@ const NavHeader = ({ currentUser }) => {
       <Nav.Link href="/join" className="ml-auto">
         {!currentUser ? <button className="btn btn-success"> Join</button> : ""}
         {currentUser ? (
-          <Nav.Link href="#">{currentUser.username}</Nav.Link>
+          <Nav.Link className="ml-auto" href="#">
+            {currentUser.username}
+          </Nav.Link>
         ) : (
           ""
         )}
-        {currentUser ? <Logout href="/" /> : ""}
       </Nav.Link>
+      {currentUser ? <Logout href="/" /> : ""}
     </Navbar>
   );
 };
