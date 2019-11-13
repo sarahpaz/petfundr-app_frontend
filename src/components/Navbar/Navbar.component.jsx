@@ -16,11 +16,11 @@ const NavHeader = ({ currentUser }) => {
           <Button type="submit" variant="success">
             Join
           </Button>
-        ) : (
-          ""
-        )}
+        ) : null}
       </Nav.Link>
-      {currentUser ? <Logout /> : ""}
+      {currentUser ? <Nav.Link href="/pets">Donate</Nav.Link> : ""}
+
+      {currentUser ? <Logout href="/logout">Logout</Logout> : null}
     </Navbar>
   );
 };
