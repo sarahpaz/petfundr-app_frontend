@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 
 import "./Signup.styles.css";
 
-const Signup = ({ signupFormData, updateSignupForm, signup }) => {
+const Signup = ({ signupFormData, updateSignupForm, signup, history }) => {
   const handleOnChange = e => {
     const { name, value } = e.target;
     const updatedFormInfo = {
@@ -18,7 +18,7 @@ const Signup = ({ signupFormData, updateSignupForm, signup }) => {
 
   const handleOnSubmit = e => {
     e.preventDefault();
-    signup(signupFormData);
+    signup(signupFormData, history);
   };
 
   return (
