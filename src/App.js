@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 import NavHeader from "./components/Navbar/Navbar.component";
 import { getCurrentUser } from "./actions/currentUser";
 import Signup from "./components/Signup/Signup.component";
-import Logout from "./components/Logout/Logout.component";
 import MainContainer from "./components/MainContainer/MainContainer.component";
 import PetList from "./components/PetListContainer/PetListContainer.component";
 import HomePage from "./components/HomePage/HomePage.component";
