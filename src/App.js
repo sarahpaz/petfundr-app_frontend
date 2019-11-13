@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Switch, Route, withRouter } from "react-router-dom";
 import "./App.css";
 import { connect } from "react-redux";
 
@@ -9,6 +9,7 @@ import Signup from "./components/Signup/Signup.component";
 import MainContainer from "./components/MainContainer/MainContainer.component";
 import PetList from "./components/PetListContainer/PetListContainer.component";
 import HomePage from "./components/HomePage/HomePage.component";
+import PetPage from "./components/PetPage/PetPage.component";
 
 class App extends Component {
   componentDidMount() {
@@ -16,7 +17,7 @@ class App extends Component {
   }
 
   render() {
-    const { loggedIn } = this.props;
+    const { loggedIn, pets } = this.props;
 
     return (
       <div className="App">
@@ -27,8 +28,16 @@ class App extends Component {
             path="/"
             render={() => (loggedIn ? <MainContainer /> : <HomePage />)}
           />
-          <Route path="/join" component={Signup} />
-          <Route path="/pets" component={PetList} />
+          <Route exact path="/join" component={Signup} />
+          <Route exact path="/pets" component={PetList} />
+          <Route
+            exact
+            path="/pets/:id"
+            render={props => {
+              const pet = pets.find(pet => pet.id === props.match.params.id);
+              return <PetPage pet={pet} />;
+            }}
+          />
         </Switch>
       </div>
     );
@@ -37,8 +46,9 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    loggedIn: !!state.currentUser
+    loggedIn: !!state.currentUser,
+    pets: state.pets
   };
 };
 
-export default connect(mapStateToProps, { getCurrentUser })(App);
+export default withRouter(connect(mapStateToProps, { getCurrentUser })(App));
