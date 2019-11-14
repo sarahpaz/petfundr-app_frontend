@@ -3,10 +3,11 @@ import { connect } from "react-redux";
 import { updateLoginForm } from "../../actions/loginForm";
 import { login } from "../../actions/currentUser";
 import Button from "react-bootstrap/Button";
+import { withRouter } from "react-router-dom";
 
 import "./Login.styles.css";
 
-const Login = ({ loginFormData, updateLoginForm, login }) => {
+const Login = ({ loginFormData, updateLoginForm, login, history }) => {
   const handleOnChange = e => {
     const { name, value } = e.target;
     const updatedFormInfo = {
@@ -19,6 +20,7 @@ const Login = ({ loginFormData, updateLoginForm, login }) => {
   const handleOnSubmit = e => {
     e.preventDefault();
     login(loginFormData);
+    history.push("/");
   };
 
   return (
@@ -56,7 +58,9 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { updateLoginForm, login } // thunk allows redux to pass this function to dispatch
-)(Login);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { updateLoginForm, login } // thunk allows redux to pass this function to dispatch
+  )(Login)
+);
