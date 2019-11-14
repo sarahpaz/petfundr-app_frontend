@@ -1,3 +1,8 @@
 .pet-container {
   background: #fff;
 }
+
+.pet-box {
+  max-width: 1030px;
+  margin: auto;
+}
