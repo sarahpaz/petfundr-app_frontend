@@ -9,8 +9,10 @@ const PetList = props => {
 
   return (
     <div className="pet-container">
-      <h3>Meet our Pets in Need</h3>
-      {petCards.length > 0 ? petCards : null}
+      <div className="pet-box">
+        <h3>Meet our Pets in Need</h3>
+        <div className="row">{petCards.length > 0 ? petCards : null}</div>
+      </div>
     </div>
   );
 };
