@@ -2,3 +2,11 @@
   display: block;
   padding: 0 1rem !important;
 }
+
+.nav-links {
+  color: #212529;
+}
+
+.nav-links:hover {
+  color: #28a745;
+}
