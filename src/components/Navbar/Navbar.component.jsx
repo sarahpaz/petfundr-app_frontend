@@ -18,8 +18,7 @@ const NavHeader = ({ currentUser }) => {
           </Button>
         ) : null}
       </Nav.Link>
-      {currentUser ? <Nav.Link href="/pets">Donate</Nav.Link> : ""}
-
+      {currentUser ? <Nav.Link href="/pets">Donate</Nav.Link> : null}
       {currentUser ? <Logout href="/logout">Logout</Logout> : null}
     </Navbar>
   );
