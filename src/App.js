@@ -10,6 +10,7 @@ import MainContainer from "./components/MainContainer/MainContainer.component";
 import PetList from "./components/PetListContainer/PetListContainer.component";
 import HomePage from "./components/HomePage/HomePage.component";
 import PetPage from "./components/PetPage/PetPage.component";
+import UserPage from "./components/UserPage/UserPage.component";
 
 class App extends Component {
   componentDidMount() {
@@ -17,7 +18,7 @@ class App extends Component {
   }
 
   render() {
-    const { loggedIn, pets } = this.props;
+    const { loggedIn, pets, users } = this.props;
 
     return (
       <div className="App">
@@ -30,6 +31,16 @@ class App extends Component {
           />
           <Route exact path="/join" component={Signup} />
           <Route exact path="/pets" component={PetList} />
+          <Route
+            exact
+            path="/users/:id"
+            render={props => {
+              const user = users.find(
+                user => user.id === props.match.params.id
+              );
+              return <UserPage user={user} />;
+            }}
+          />
           <Route
             exact
             path="/pets/:id"
@@ -47,7 +58,8 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     loggedIn: !!state.currentUser,
-    pets: state.pets
+    pets: state.pets,
+    users: state.users
   };
 };
 
