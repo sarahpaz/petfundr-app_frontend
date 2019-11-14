@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Navbar, Nav } from "react-bootstrap";
 import Logout from "../Logout/Logout.component";
 import Button from "react-bootstrap/Button";
+import "./Navbar.styles.css";
 
 const NavHeader = ({ currentUser }) => {
   return (
@@ -18,7 +19,18 @@ const NavHeader = ({ currentUser }) => {
           </Button>
         ) : null}
       </Nav.Link>
-      {currentUser ? <Nav.Link href="/pets">Donate</Nav.Link> : null}
+      {currentUser ? (
+        <Nav.Link href="/pets" className="nav-links">
+          Pets
+        </Nav.Link>
+      ) : null}
+      {/* 
+			{currentUser ? (
+        // <Nav.Link href={`/users/${currentUser.data.id}`} className="nav-links"> //TODO: currentUser nested attributes change after refresh
+        //   USERNAME
+        // </Nav.Link>
+			) : null}
+			*/}
       {currentUser ? <Logout href="/logout">Logout</Logout> : null}
     </Navbar>
   );
