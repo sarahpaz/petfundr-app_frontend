@@ -7,9 +7,10 @@ import Card from "react-bootstrap/Card";
 const PetCard = ({ pet }) => {
   return (
     <CardDeck
+      className="col-md-6 col-lg-4"
       style={{
-        width: "25rem",
-        margin: "auto"
+        margin: "2em auto"
+        // border: "1px solid red"
       }}
     >
       <Card>
@@ -25,6 +26,7 @@ const PetCard = ({ pet }) => {
             Age: {pet.attributes.age}
           </Card.Text>
           <Card.Text>Goal: ${pet.attributes.goal}</Card.Text>
+          <progress value="200" max={pet.attributes.goal}></progress>
         </Card.Body>
         <Card.Footer>
           <small className="text-muted">
