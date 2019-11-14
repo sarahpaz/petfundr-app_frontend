@@ -1,9 +1,9 @@
-.signup-form h1,
-.signup-form p {
+.signup-container h1,
+.signup-container p {
   color: #fff;
 }
 
-.signup-form {
+.signup-container {
   padding: 20%;
 }
 
@@ -11,6 +11,6 @@ input {
   margin-top: 5px;
 }
 
-.signup-form button {
+.signup-container button {
   margin-top: 15px;
 }
