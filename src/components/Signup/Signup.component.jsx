@@ -22,7 +22,7 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history }) => {
   };
 
   return (
-    <div className="signup-form">
+    <div className="signup-container">
       <h1>Join PetFundr</h1>
       <p>
         Being a PetFundr member allows you to make donations to help pets
