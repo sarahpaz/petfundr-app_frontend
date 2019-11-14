@@ -1,6 +1,7 @@
 import { resetLoginForm } from "./loginForm";
 import { getAllPets } from "./pets.js";
 import { resetSignupForm } from "./signupForm";
+import { getAllUsers } from "./users";
 // syncrhonous action creators - state is updated immediately
 export const setCurrentUser = user => {
   return {
@@ -16,7 +17,7 @@ export const clearCurrentUser = () => {
 };
 
 // asynchronous action creators -- requests to the backend are required first
-export const login = credentials => {
+export const login = (credentials, history) => {
   // console.log("here are the creds", credentials);
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/login", {
@@ -35,6 +36,8 @@ export const login = credentials => {
           dispatch(setCurrentUser(user)); // dispatch action creator
           dispatch(getAllPets());
           dispatch(resetLoginForm());
+          dispatch(getAllUsers());
+          history.push("/");
         }
       })
       .catch(console.log);
@@ -66,7 +69,8 @@ export const getCurrentUser = () => {
           alert(user.error);
         } else {
           dispatch(setCurrentUser(user));
-          dispatch(getAllPets()); // dispatch action creator
+          dispatch(getAllPets());
+          dispatch(getAllUsers()); // dispatch action creator
         }
       })
       .catch(console.log);
