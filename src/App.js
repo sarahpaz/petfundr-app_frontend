@@ -11,6 +11,7 @@ import PetList from "./components/PetListContainer/PetListContainer.component";
 import HomePage from "./components/HomePage/HomePage.component";
 import PetPage from "./components/PetPage/PetPage.component";
 import UserPage from "./components/UserPage/UserPage.component";
+import NewDonation from "./components/NewDonation/NewDonation.component";
 
 class App extends Component {
   componentDidMount() {
@@ -49,6 +50,7 @@ class App extends Component {
               return <PetPage pet={pet} />;
             }}
           />
+          <Route exact path="/donations/new" component={NewDonation} />
         </Switch>
       </div>
     );
