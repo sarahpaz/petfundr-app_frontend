@@ -3,6 +3,7 @@ import "./PetCard.styles.css";
 import { Link } from "react-router-dom";
 import CardDeck from "react-bootstrap/CardDeck";
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
 const PetCard = ({ pet }) => {
   return (
@@ -21,12 +22,15 @@ const PetCard = ({ pet }) => {
         />
         <Card.Body>
           <Card.Title>{pet.attributes.name}</Card.Title>
-          <Card.Text>
-            Cause: {pet.attributes.cause} <br />
-            Age: {pet.attributes.age}
-          </Card.Text>
+          <Card.Text>Cause: {pet.attributes.cause}</Card.Text>
           <Card.Text>Goal: ${pet.attributes.goal}</Card.Text>
           <progress value="200" max={pet.attributes.goal}></progress>
+          <br />
+          <Button variant="success">
+            <Link to="/donations/new" className="link-button">
+              Donate
+            </Link>
+          </Button>
         </Card.Body>
         <Card.Footer>
           <small className="text-muted">
