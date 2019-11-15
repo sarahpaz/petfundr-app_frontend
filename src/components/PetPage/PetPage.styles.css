@@ -2,3 +2,7 @@
   background: #fff;
   height: 100vh;
 }
+
+.pet-page button {
+  margin-top: 15px;
+}
