@@ -98,6 +98,7 @@ export const signup = (credentials, history) => {
         } else {
           dispatch(setCurrentUser(user.data));
           dispatch(resetSignupForm());
+          dispatch(getAllPets());
           history.push("/");
         }
       })
