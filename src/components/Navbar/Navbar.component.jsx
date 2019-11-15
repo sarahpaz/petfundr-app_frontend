@@ -1,34 +1,37 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
 import Logout from "../Logout/Logout.component";
 import Button from "react-bootstrap/Button";
 import "./Navbar.styles.css";
+import { Link } from "react-router-dom";
 
 const NavHeader = ({ currentUser }) => {
   return (
     <Navbar bg="light" variant="light">
-      <Navbar.Brand style={{ color: "#218838" }} href="/">
-        PetFundr
+      <Navbar.Brand>
+        <Link to="/" className="brand-logo">
+          PetFundr
+        </Link>
       </Navbar.Brand>
-      <Nav.Link href="/join" className="ml-auto">
+      <Link to="/join" className="ml-auto">
         {!currentUser ? (
           <Button type="submit" variant="success">
             Join
           </Button>
         ) : null}
-      </Nav.Link>
+      </Link>
       {currentUser ? (
-        <Nav.Link href="/pets" className="nav-links">
+        <Link to="/pets" className="nav-links">
           Pets
-        </Nav.Link>
+        </Link>
       ) : null}
       {/* 
 			{currentUser ? (
-        // <Nav.Link href={`/users/${currentUser.data.id}`} className="nav-links"> //TODO: currentUser nested attributes change after refresh
+        // <Link href={`/users/${currentUser.data.id}`} className="nav-links"> //TODO: currentUser nested attributes change after refresh
         //   USERNAME
-        // </Nav.Link>
+        // </Link>
 			) : null}
 			*/}
       {currentUser ? <Logout href="/logout">Logout</Logout> : null}

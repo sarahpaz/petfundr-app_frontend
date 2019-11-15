@@ -7,6 +7,12 @@
   color: #212529;
 }
 
-.nav-links:hover {
+.nav-links:hover,
+.brand-logo:hover {
+  color: #28a745;
+  text-decoration: none;
+}
+
+.brand-logo {
   color: #28a745;
 }
