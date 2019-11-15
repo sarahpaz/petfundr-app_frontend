@@ -1,7 +1,7 @@
 import { resetLoginForm } from "./loginForm";
 import { getAllPets } from "./pets.js";
 import { resetSignupForm } from "./signupForm";
-import { getAllUsers } from "./users";
+import { getAllUsers, clearAllUsers } from "./users";
 // syncrhonous action creators - state is updated immediately
 export const setCurrentUser = user => {
   return {
@@ -47,6 +47,7 @@ export const login = (credentials, history) => {
 export const logout = () => {
   return dispatch => {
     dispatch(clearCurrentUser()); // dispatch clears the front end, fetch clears the back end (logout route)
+    dispatch(clearAllUsers());
     return fetch("http://localhost:3001/api/v1/logout", {
       credentials: "include",
       method: "DELETE"
