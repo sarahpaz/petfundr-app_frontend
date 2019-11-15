@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { updateLoginForm } from "../../actions/loginForm";
 import { login } from "../../actions/currentUser";
 import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 import { withRouter } from "react-router-dom";
 
 import "./Login.styles.css";
@@ -26,7 +27,7 @@ const Login = ({ loginFormData, updateLoginForm, login, history }) => {
   return (
     <div className="login-container">
       <h1 id="main-title">PetFundr</h1>
-      <form onSubmit={handleOnSubmit}>
+      <Form onSubmit={handleOnSubmit}>
         <input
           type="text"
           name="username"
@@ -46,7 +47,7 @@ const Login = ({ loginFormData, updateLoginForm, login, history }) => {
         <Button type="submit" variant="success">
           Login
         </Button>
-      </form>
+      </Form>
     </div>
   );
 };

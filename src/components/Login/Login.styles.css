@@ -4,6 +4,7 @@
 
 input {
   margin-top: 5px;
+  border-radius: 0.25em;
 }
 
 .login-container button {
