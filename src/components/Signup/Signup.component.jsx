@@ -28,7 +28,7 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history }) => {
         Being a PetFundr member allows you to make donations to help pets
         undergo medical procedures.
       </p>
-      <p>Join today, and save a pet.</p>
+      <p>Join today, and help a pet.</p>
       <form onSubmit={handleOnSubmit}>
         <input
           type="text"
