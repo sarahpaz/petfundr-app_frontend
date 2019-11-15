@@ -1,3 +1,9 @@
 h3 {
   color: #28a745;
 }
+
+a.link-button,
+a.link-button:hover {
+  color: #fff;
+  text-decoration: none;
+}
