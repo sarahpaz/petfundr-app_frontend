@@ -6,6 +6,12 @@ export const setAllUsers = users => {
   };
 };
 
+export const clearAllUsers = () => {
+  return {
+    type: "CLEAR_ALL_USERS"
+  };
+};
+
 // asynchronous actions creators
 export const getAllUsers = () => {
   return dispatch => {
