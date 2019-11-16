@@ -41,7 +41,9 @@ const PetCard = ({ pet }) => {
         <Card.Footer>
           <small className="text-muted">
             Learn more about{" "}
-            <Link to={`/pets/${pet.id}`}>{pet.attributes.name}</Link>
+            <Link key={pet.id} to={`/pets/${pet.id}`}>
+              {pet.attributes.name}
+            </Link>
           </small>
         </Card.Footer>
       </Card>
