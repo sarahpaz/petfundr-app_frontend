@@ -3,9 +3,11 @@ import { connect } from "react-redux";
 import Button from "react-bootstrap/Button";
 import "./NewDonation.styles.css";
 import { updateNewDonationInfo } from "../../actions/newDonation"; // 1. import action creator
+import { createDonation } from "../../actions/donations";
 
 //* 3) Redux gives a prop (updateNewDonationInfo)
-const NewDonation = ({ amount, message, updateNewDonationInfo }) => {
+const NewDonation = ({ formData, updateNewDonationInfo, createDonation }) => {
+  const { amount, message } = formData;
   const handleOnChange = e => {
     // console.log("trigger handleOnChange");
     const { name, value } = e.target;
@@ -14,6 +16,7 @@ const NewDonation = ({ amount, message, updateNewDonationInfo }) => {
 
   const handleOnSubmit = e => {
     e.preventDefault();
+    createDonation(formData);
   };
 
   return (
@@ -46,12 +49,13 @@ const NewDonation = ({ amount, message, updateNewDonationInfo }) => {
 };
 
 const mapStateToProps = state => {
-  const { amount, message } = state.newDonation;
   return {
-    amount,
-    message
+    formData: state.newDonation
   };
 };
 
-export default connect(mapStateToProps, { updateNewDonationInfo })(NewDonation);
+export default connect(mapStateToProps, {
+  updateNewDonationInfo,
+  createDonation
+})(NewDonation);
 //2. action creator passed through redux's connect (mapDispatchToProps / object shorthand)
