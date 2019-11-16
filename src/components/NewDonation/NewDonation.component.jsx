@@ -21,7 +21,7 @@ const NewDonation = ({ formData, updateNewDonationInfo, createDonation }) => {
 
   return (
     <div className="donation-container">
-      <h3>New Donation Component</h3>
+      <h3>Make a Donation</h3>
       <form onSubmit={handleOnSubmit}>
         <input
           type="number"
