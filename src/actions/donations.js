@@ -6,6 +6,13 @@ export const setAllDonations = donations => {
   };
 };
 
+export const addDonation = donation => {
+  return {
+    type: "ADD_DONATION",
+    donation
+  };
+};
+
 // asynchronous actions creators
 export const getAllDonations = () => {
   return dispatch => {
@@ -22,6 +29,34 @@ export const getAllDonations = () => {
           alert(donations.error);
         } else {
           dispatch(setAllDonations(donations.data)); // dispatch action creator
+        }
+      })
+      .catch(console.log);
+  };
+};
+
+export const createDonation = (donationData, currentUser) => {
+  return dispatch => {
+    const sendableDonationData = {
+      amount: donationData.amount,
+      message: donationData.message,
+      user: donationData.user_id,
+      pet: donationData.pet_id
+    };
+    return fetch("http://localhost:3001/api/v1/donations", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(sendableDonationData)
+    })
+      .then(res => res.json())
+      .then(donation => {
+        if (donation.error) {
+          alert(donation.error);
+        } else {
+          dispatch(addDonation(donation.data)); // dispatch action creator
         }
       })
       .catch(console.log);
