@@ -5,14 +5,18 @@ import currentUser from "./reducers/currentUser";
 import loginForm from "./reducers/loginForm";
 import pets from "./reducers/pets";
 import signupForm from "./reducers/signupForm";
-import users from "./reducers/users";
+// import users from "./reducers/users";
+import newDonation from "./reducers/newDonation";
+import donations from "./reducers/donations";
 
 const reducer = combineReducers({
   currentUser,
   loginForm,
   pets,
   signupForm,
-  users
+  // users, //* stretch goal to add user page
+  newDonation,
+  donations
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
