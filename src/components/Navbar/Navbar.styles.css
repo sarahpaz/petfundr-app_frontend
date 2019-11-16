@@ -9,6 +9,8 @@
 }
 
 .nav-links:hover,
+.nav-links:active,
+.nav-links:visited,
 .brand-logo:hover {
   color: #28a745;
   text-decoration: none;
