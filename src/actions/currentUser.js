@@ -2,6 +2,7 @@ import { resetLoginForm } from "./loginForm";
 import { getAllPets } from "./pets.js";
 import { resetSignupForm } from "./signupForm";
 import { getAllUsers, clearAllUsers } from "./users";
+import { getAllDonations } from "./donations";
 // syncrhonous action creators - state is updated immediately
 export const setCurrentUser = user => {
   return {
@@ -37,6 +38,7 @@ export const login = (credentials, history) => {
           dispatch(getAllPets());
           dispatch(resetLoginForm());
           dispatch(getAllUsers());
+          dispatch(getAllDonations());
           history.push("/");
         }
       })
@@ -72,6 +74,7 @@ export const getCurrentUser = () => {
           dispatch(setCurrentUser(user));
           dispatch(getAllPets());
           dispatch(getAllUsers()); // dispatch action creator
+          dispatch(getAllDonations());
         }
       })
       .catch(console.log);
@@ -99,6 +102,7 @@ export const signup = (credentials, history) => {
           dispatch(setCurrentUser(user.data));
           dispatch(resetSignupForm());
           dispatch(getAllPets());
+          dispatch(getAllDonations());
           history.push("/");
         }
       })
