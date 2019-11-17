@@ -7,14 +7,19 @@ import { createDonation } from "../../actions/donations";
 
 //* 3) Redux gives a prop (updateNewDonationInfo)
 const NewDonation = ({ formData, updateNewDonationInfo, createDonation }) => {
-  const { amount, message } = formData;
+  const petId = props.location.state.petId; //TODO: Trying to connect petId to form
+  const { amount, message, petId } = formData;
+
   const handleOnChange = e => {
     // console.log("trigger handleOnChange");
     const { name, value } = e.target;
+    // const { petId } = props.state.location.pet.id;
     updateNewDonationInfo(name, value);
   };
 
   const handleOnSubmit = e => {
+    console.log("handleOnSubmit");
+
     e.preventDefault();
     createDonation(formData);
   };
