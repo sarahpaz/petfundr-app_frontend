@@ -4,21 +4,23 @@ import Button from "react-bootstrap/Button";
 import "./NewDonation.styles.css";
 import { updateNewDonationInfo } from "../../actions/newDonation"; // 1. import action creator
 import { createDonation } from "../../actions/donations";
+import {withRouter} from 'react-router-dom'
 
 //* 3) Redux gives a prop (updateNewDonationInfo)
-const NewDonation = ({ formData, updateNewDonationInfo, createDonation }) => {
-  const petId = props.location.state.petId; //TODO: Trying to connect petId to form
-  const { amount, message, petId } = formData;
+const NewDonation = ({
+  formData,
+  updateNewDonationInfo,
+  createDonation,
+}) => {
+  const { amount, message } = formData;
 
   const handleOnChange = e => {
-    // console.log("trigger handleOnChange");
     const { name, value } = e.target;
-    // const { petId } = props.state.location.pet.id;
     updateNewDonationInfo(name, value);
   };
 
   const handleOnSubmit = e => {
-    console.log("handleOnSubmit");
+    // console.log("I'm props:", props);
 
     e.preventDefault();
     createDonation(formData);
@@ -26,7 +28,7 @@ const NewDonation = ({ formData, updateNewDonationInfo, createDonation }) => {
 
   return (
     <div className="donation-container">
-      <h3>Make a Donation</h3>
+			<h3>Make a Donation</h3>
       <form onSubmit={handleOnSubmit}>
         <input
           type="number"
@@ -43,7 +45,8 @@ const NewDonation = ({ formData, updateNewDonationInfo, createDonation }) => {
           placeholder="Message"
           value={message}
           onChange={handleOnChange}
-        ></input>
+				></input>
+				{/*<input type="hidden" petId={props.location.state.petId} />*/}
         <br />
         <Button type="submit" variant="success" className="link-button">
           Donate
@@ -59,8 +62,8 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {
+export default withRouter (connect(mapStateToProps, {
   updateNewDonationInfo,
   createDonation
-})(NewDonation);
+})(NewDonation));
 //2. action creator passed through redux's connect (mapDispatchToProps / object shorthand)
