@@ -33,7 +33,10 @@ const PetCard = ({ pet }) => {
           />
           <br />
           <Button variant="success">
-            <Link to="/donations/new" className="link-button">
+            <Link
+              to={{ pathname: `/donations/new`, state: { petId: pet.id } }}
+              className="link-button"
+            >
               Donate
             </Link>
           </Button>
