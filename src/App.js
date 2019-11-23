@@ -50,7 +50,15 @@ class App extends Component {
               return <PetPage pet={pet} />;
             }}
           />
-          <Route exact path="/donations/new" component={NewDonation} />
+          <Route
+            exact
+            path="/donations/new"
+            // component={NewDonation}
+            render={props => {
+              const pet = pets.find(pet => pet.id === props.match.params.id);
+              return <NewDonation pet={pet} />;
+            }}
+          />
         </Switch>
       </div>
     );
