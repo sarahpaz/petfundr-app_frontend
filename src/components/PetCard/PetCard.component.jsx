@@ -25,6 +25,7 @@ const PetCard = ({ pet }) => {
           <Card.Title>{pet.attributes.name}</Card.Title>
           <Card.Text>Cause: {pet.attributes.cause}</Card.Text>
           <Card.Text>Goal: ${pet.attributes.goal}</Card.Text>
+          <Card.Text>PET IDDDDD: {pet.id} !!!</Card.Text>
           <ProgressBar
             striped
             variant="info"
@@ -34,7 +35,7 @@ const PetCard = ({ pet }) => {
           <br />
           <Button variant="success">
             <Link
-              to={{ pathname: `/donations/new`, state: { petId: pet.id } }}
+              to={{ pathname: `/donations/new`, state: { pet_id: pet.id } }}
               className="link-button"
             >
               Donate
