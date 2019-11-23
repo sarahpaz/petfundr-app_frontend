@@ -1,8 +1,7 @@
 const initialState = {
   amount: 0,
   message: "",
-  user: "",
-  petID: ""
+  pet_id: ""
 };
 
 export default (state = initialState, action) => {
