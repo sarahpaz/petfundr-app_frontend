@@ -1,9 +1,11 @@
 import React from "react";
 import "./PetPage.styles.css";
-import Button from "react-bootstrap/Button";
+// import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import ProgressBar from "react-bootstrap/ProgressBar";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+// import newDonation from "../../reducers/newDonation";
+import NewDonation from "../NewDonation/NewDonation.component";
 
 const PetPage = ({ pet }) => {
   return pet ? (
@@ -26,11 +28,13 @@ const PetPage = ({ pet }) => {
             now={20} //TODO:update to show donation total
             style={{ width: "50%", margin: "auto" }}
           />
-          <Button type="submit" variant="success">
+          {/* <Button type="submit" variant="success">
             <Link to="/donations/new" className="link-button">
               Donate
             </Link>
-          </Button>
+	</Button> */}
+
+          <NewDonation pet={pet} />
         </Card.Body>
       </Card>
     </div>
