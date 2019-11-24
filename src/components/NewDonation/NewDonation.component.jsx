@@ -7,12 +7,7 @@ import { createDonation } from "../../actions/donations";
 import { withRouter } from "react-router-dom";
 
 //* 3) Redux gives a prop (updateNewDonationInfo)
-const NewDonation = ({
-  formData,
-  updateNewDonationInfo,
-  createDonation,
-  pet
-}) => {
+const NewDonation = ({ formData, updateNewDonationInfo, createDonation }) => {
   const { amount, message } = formData;
 
   const handleOnChange = e => {
@@ -28,7 +23,7 @@ const NewDonation = ({
 
   return (
     <div className="donation-container">
-      <h3>Make a Donation</h3>
+      <h4>Make a Donation</h4>
       <form onSubmit={handleOnSubmit}>
         <input
           type="number"
