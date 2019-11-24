@@ -5,7 +5,7 @@ export default (state = initialState, action) => {
     case "SET_ALL_DONATIONS":
       return action.donations;
     case "ADD_DONATION":
-      return state.concat(action.donation);
+      return state.concat(action.donations);
     default:
       return state;
   }
