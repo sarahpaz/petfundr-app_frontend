@@ -39,9 +39,7 @@ export const createDonation = donationData => {
   return dispatch => {
     const sendableDonationData = {
       amount: donationData.amount,
-      message: donationData.message,
-      pet_id: donationData.pet_id,
-      user_id: donationData.user_id
+      message: donationData.message
     };
     return fetch("http://localhost:3001/api/v1/donations", {
       method: "POST",
