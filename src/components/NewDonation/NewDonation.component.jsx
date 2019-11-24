@@ -11,9 +11,9 @@ const NewDonation = ({
   formData,
   updateNewDonationInfo,
   createDonation,
-  props
+  pet
 }) => {
-  const { amount, message, pet_id } = formData;
+  const { amount, message } = formData;
 
   const handleOnChange = e => {
     const { name, value } = e.target;
@@ -23,7 +23,7 @@ const NewDonation = ({
   const handleOnSubmit = e => {
     e.preventDefault();
     createDonation(formData);
-    console.log(props);
+    console.log(formData);
   };
 
   return (
@@ -46,7 +46,6 @@ const NewDonation = ({
           value={message}
           onChange={handleOnChange}
         ></input>
-        <input type="hidden" pet={pet_id} name="pet_id" />
         <br />
         <Button type="submit" variant="success" className="link-button">
           Donate
