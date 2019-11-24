@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import CardDeck from "react-bootstrap/CardDeck";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import ProgressBar from "react-bootstrap/ProgressBar";
 
 const PetCard = ({ pet }) => {
   return (
@@ -25,14 +24,6 @@ const PetCard = ({ pet }) => {
           <Card.Title>{pet.attributes.name}</Card.Title>
           <Card.Text>Cause: {pet.attributes.cause}</Card.Text>
           <Card.Text>Goal: ${pet.attributes.goal}</Card.Text>
-          <Card.Text>PET IDDDDD: {pet.id} !!!</Card.Text>
-          <ProgressBar
-            striped
-            variant="info"
-            now={20} //TODO:update to show donation total
-            style={{ width: "50%", margin: "auto" }}
-          />
-          <br />
           <Button variant="success">
             <Link key={pet.id} to={`/pets/${pet.id}`} className="link-button">
               Donate
