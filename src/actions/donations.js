@@ -35,13 +35,13 @@ export const getAllDonations = () => {
   };
 };
 
-export const createDonation = (donationData, currentUser) => {
+export const createDonation = donationData => {
   return dispatch => {
     const sendableDonationData = {
       amount: donationData.amount,
       message: donationData.message,
-      user: donationData.user_id,
-      pet: donationData.pet_id
+      pet_id: donationData.pet_id,
+      user_id: donationData.user_id
     };
     return fetch("http://localhost:3001/api/v1/donations", {
       method: "POST",
