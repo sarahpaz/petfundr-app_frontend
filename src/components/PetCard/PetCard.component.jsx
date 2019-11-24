@@ -11,11 +11,11 @@ const PetCard = ({ pet }) => {
     <CardDeck
       className="col-md-6 col-lg-4"
       style={{
-        margin: "2em auto"
+        margin: "1.5em auto"
         // border: "1px solid red"
       }}
     >
-      <Card>
+      <Card className="pet-card">
         <Card.Img
           variant="top"
           src={pet.attributes.image}
@@ -34,10 +34,7 @@ const PetCard = ({ pet }) => {
           />
           <br />
           <Button variant="success">
-            <Link
-              to={{ pathname: `/donations/new`, state: { pet_id: pet.id } }}
-              className="link-button"
-            >
+            <Link key={pet.id} to={`/pets/${pet.id}`} className="link-button">
               Donate
             </Link>
           </Button>
