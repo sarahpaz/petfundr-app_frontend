@@ -15,9 +15,4 @@ export const resetSignupForm = () => {
   };
 };
 
-export const addDonation = donation => {
-  return {
-    type: "ADD_DONATION",
-    donation
-  };
-};
+// asynchronous actions creators
