@@ -38,8 +38,12 @@ export const getAllDonations = () => {
 export const createDonation = donationData => {
   return dispatch => {
     const sendableDonationData = {
-      amount: donationData.amount,
-      message: donationData.message
+      donation: {
+        amount: donationData.amount,
+        message: donationData.message,
+        pet_id: donationData.petId,
+        user_id: donationData.userId
+      }
     };
     return fetch("http://localhost:3001/api/v1/donations", {
       method: "POST",
