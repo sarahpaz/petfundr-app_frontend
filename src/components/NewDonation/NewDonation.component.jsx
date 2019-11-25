@@ -7,8 +7,15 @@ import { createDonation } from "../../actions/donations";
 import { withRouter } from "react-router-dom";
 
 //* 3) Redux gives a prop (updateNewDonationInfo)
-const NewDonation = ({ formData, updateNewDonationInfo, createDonation }) => {
+const NewDonation = ({
+  formData,
+  updateNewDonationInfo,
+  createDonation,
+  userId,
+  pet
+}) => {
   const { amount, message } = formData;
+  const petId = pet.id;
 
   const handleOnChange = e => {
     const { name, value } = e.target;
@@ -17,8 +24,12 @@ const NewDonation = ({ formData, updateNewDonationInfo, createDonation }) => {
 
   const handleOnSubmit = e => {
     e.preventDefault();
-    createDonation(formData);
-    console.log(formData);
+    createDonation({
+      ...formData,
+      userId,
+      petId
+    });
+    // console.log(petId);
   };
 
   return (
@@ -50,9 +61,10 @@ const NewDonation = ({ formData, updateNewDonationInfo, createDonation }) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, pet) => {
   return {
-    formData: state.newDonation
+    formData: state.newDonation,
+    userId: state.currentUser.data.id
   };
 };
 
