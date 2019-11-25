@@ -24,7 +24,7 @@ const PetCard = ({ pet }) => {
           <Card.Title>{pet.attributes.name}</Card.Title>
           <Card.Text>Cause: {pet.attributes.cause}</Card.Text>
           <Card.Text>Goal: ${pet.attributes.goal}</Card.Text>
-          <Button variant="success align-self-end">
+          <Button variant="success">
             <Link key={pet.id} to={`/pets/${pet.id}`} className="link-button">
               Donate
             </Link>
