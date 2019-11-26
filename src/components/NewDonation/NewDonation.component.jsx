@@ -61,10 +61,11 @@ const NewDonation = ({
   );
 };
 
-const mapStateToProps = (state, pet) => {
+const mapStateToProps = state => {
+  const userId = state.currentUser.id;
   return {
     formData: state.newDonation,
-    userId: state.currentUser.data.id
+    userId
   };
 };
 
