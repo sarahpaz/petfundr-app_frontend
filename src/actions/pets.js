@@ -6,6 +6,12 @@ export const setAllPets = pets => {
   };
 };
 
+export const clearAllPets = () => {
+  return {
+    type: "CLEAR_ALL_PETS"
+  };
+};
+
 // asynchronous actions creators
 export const getAllPets = () => {
   return dispatch => {
