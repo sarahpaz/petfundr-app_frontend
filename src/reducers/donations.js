@@ -6,6 +6,8 @@ export default (state = initialState, action) => {
       return action.donations;
     case "ADD_DONATION":
       return state.concat(action.donations);
+    case "CLEAR_DONATIONS":
+      return [];
     default:
       return state;
   }
