@@ -1,10 +1,7 @@
 import React from "react";
 import "./PetPage.styles.css";
-// import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import ProgressBar from "react-bootstrap/ProgressBar";
-// import { Link } from "react-router-dom";
-// import newDonation from "../../reducers/newDonation";
 import NewDonation from "../NewDonation/NewDonation.component";
 
 const PetPage = ({ pet }) => {
