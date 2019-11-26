@@ -12,7 +12,11 @@ export const addDonation = donation => {
     donation
   };
 };
-
+export const clearDonations = () => {
+  return {
+    type: "CLEAR_DONATIONS"
+  };
+};
 // asynchronous actions creators
 export const getAllDonations = () => {
   return dispatch => {
