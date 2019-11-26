@@ -1,10 +1,11 @@
 import { resetLoginForm } from "./loginForm";
-import { getAllPets } from "./pets.js";
+import { getAllPets, clearAllPets } from "./pets.js";
 import { resetSignupForm } from "./signupForm";
 import { getAllUsers, clearAllUsers } from "./users";
 import { getAllDonations } from "./donations";
 // syncrhonous action creators - state is updated immediately
 export const setCurrentUser = user => {
+  // console.log(user);
   return {
     type: "SET_CURRENT_USER", // matches the case in the reducer
     user // shorthand version of payload: user
@@ -18,7 +19,7 @@ export const clearCurrentUser = () => {
 };
 
 // asynchronous action creators -- requests to the backend are required first
-export const login = (credentials, history) => {
+export const login = credentials => {
   // console.log("here are the creds", credentials);
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/login", {
@@ -31,15 +32,15 @@ export const login = (credentials, history) => {
     })
       .then(res => res.json())
       .then(user => {
+        // console.log(user);
         if (user.error) {
           alert(user.error);
         } else {
-          dispatch(setCurrentUser(user)); // dispatch action creator
+          dispatch(setCurrentUser(user.data)); // dispatch action creator
           dispatch(getAllPets());
           dispatch(resetLoginForm());
           dispatch(getAllUsers());
           dispatch(getAllDonations());
-          history.push("/");
         }
       })
       .catch(console.log);
@@ -50,6 +51,7 @@ export const logout = () => {
   return dispatch => {
     dispatch(clearCurrentUser()); // dispatch clears the front end, fetch clears the back end (logout route)
     dispatch(clearAllUsers());
+    dispatch(clearAllPets());
     return fetch("http://localhost:3001/api/v1/logout", {
       credentials: "include",
       method: "DELETE"
