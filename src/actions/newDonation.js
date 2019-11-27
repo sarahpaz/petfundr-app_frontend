@@ -8,4 +8,10 @@ export const updateNewDonationInfo = (name, value) => {
   };
 };
 
+export const resetNewDonationForm = () => {
+  return {
+    type: "RESET_NEW_DONATION_FORM"
+  };
+};
+
 // asynchronous actions creators
