@@ -1,3 +1,4 @@
+import { resetNewDonationForm } from "./newDonation";
 // synchronous actions creators
 export const setAllDonations = donations => {
   return {
@@ -69,6 +70,7 @@ export const createDonation = donationData => {
           alert(donation.error);
         } else {
           dispatch(addDonation(donation.data)); // dispatch action creator
+          dispatch(resetNewDonationForm());
         }
       })
       .catch(console.log);
