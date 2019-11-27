@@ -63,7 +63,6 @@ const NewDonation = ({
 
 const mapStateToProps = state => {
   const userId = state.currentUser.data.id;
-
   return {
     formData: state.newDonation,
     userId
