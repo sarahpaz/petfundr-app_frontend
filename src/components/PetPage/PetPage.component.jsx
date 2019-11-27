@@ -22,15 +22,9 @@ const PetPage = ({ pet }) => {
           <ProgressBar
             striped
             variant="info"
-            now={20} //TODO:update to show donation total
+            now={40} //TODO:update to show donation total
             style={{ width: "50%", margin: "auto" }}
           />
-          {/* <Button type="submit" variant="success">
-            <Link to="/donations/new" className="link-button">
-              Donate
-            </Link>
-	</Button> */}
-
           <NewDonation pet={pet} />
         </Card.Body>
       </Card>
