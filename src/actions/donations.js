@@ -38,6 +38,12 @@ export const getAllDonations = () => {
       .catch(console.log);
   };
 };
+export const resetDonationForm = () => {
+  return {
+    type: "RESET_NEW_DONATION_FORM"
+    // No payload required because form is being reset
+  };
+};
 
 export const createDonation = donationData => {
   return dispatch => {
