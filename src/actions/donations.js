@@ -71,6 +71,7 @@ export const createDonation = donationData => {
         } else {
           dispatch(addDonation(donation.data)); // dispatch action creator
           dispatch(resetNewDonationForm());
+          alert("Thank you for your donation!");
         }
       })
       .catch(console.log);
