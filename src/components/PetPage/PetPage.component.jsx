@@ -6,10 +6,11 @@ import ProgressBar from "react-bootstrap/ProgressBar";
 import NewDonation from "../NewDonation/NewDonation.component";
 
 class PetPage extends Component {
+  // initial state is total of current donations
   state = {
-    donations: 50
+    donations: 40
   };
-
+  // setState to total of donations + new donation amount
   totalDonations = () => {
     return this.setState({
       donations: this.state.donations
@@ -18,7 +19,7 @@ class PetPage extends Component {
 
   render() {
     const { pet } = this.props;
-    console.log();
+
     return pet ? (
       <div className="pet-page">
         <h3>Meet {pet.attributes.name}!</h3>
@@ -39,6 +40,7 @@ class PetPage extends Component {
               now={this.state.donations} //TODO:update to show donation total
               style={{ width: "50%", margin: "auto" }}
             />
+
             <NewDonation pet={pet} />
           </Card.Body>
         </Card>
