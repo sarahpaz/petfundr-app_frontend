@@ -3,16 +3,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Button from "react-bootstrap/Button";
 import "./NewDonation.styles.css";
-import { updateNewDonationInfo } from "../../actions/newDonation"; // 1. import action creator
+import { updateNewDonationInfo } from "../../actions/newDonation";
 import { createDonation } from "../../actions/donations";
 import { withRouter } from "react-router-dom";
-// import { Message } from "semantic-ui-react";
-
-//* 3) Redux gives a prop (updateNewDonationInfo)
 class NewDonation extends Component {
-  state = {
-    formError: false
-  };
   render() {
     const {
       formData,
