@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-
 import { Navbar } from "react-bootstrap";
 import Logout from "../Logout/Logout.component";
 import Button from "react-bootstrap/Button";
