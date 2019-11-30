@@ -5,10 +5,9 @@ import { login } from "../../actions/currentUser";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { withRouter } from "react-router-dom";
-
 import "./Login.styles.css";
 
-const Login = ({ loginFormData, updateLoginForm, login, history }) => {
+const Login = ({ loginFormData, updateLoginForm, login }) => {
   const handleOnChange = e => {
     const { name, value } = e.target;
     const updatedFormInfo = {
@@ -21,7 +20,6 @@ const Login = ({ loginFormData, updateLoginForm, login, history }) => {
   const handleOnSubmit = e => {
     e.preventDefault();
     login(loginFormData);
-    history.push("/");
   };
 
   return (
