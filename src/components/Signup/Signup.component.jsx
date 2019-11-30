@@ -24,11 +24,7 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history }) => {
   return (
     <div className="signup-container">
       <h1>Join PetFundr</h1>
-      <p>
-        Being a PetFundr member allows you to make donations to help pets
-        undergo medical procedures.
-      </p>
-      <p>Join today, and help a pet.</p>
+      <p>Become a PetFundr member and help pets in need.</p>
       <form onSubmit={handleOnSubmit}>
         <input
           type="text"
