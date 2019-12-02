@@ -10,7 +10,7 @@ class PetPage extends Component {
     return pet ? (
       <div className="pet-page">
         <h3>Meet {pet.attributes.name}!</h3>
-        <Card style={{ width: "35em", margin: "2em auto" }}>
+        <Card className="pet-page-card">
           <Card.Img
             variant="top"
             src={pet.attributes.image}
