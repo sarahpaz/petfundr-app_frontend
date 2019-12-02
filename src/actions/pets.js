@@ -1,3 +1,5 @@
+import toast from "toasted-notes";
+import "toasted-notes/src/styles.css";
 // synchronous actions creators
 export const setAllPets = pets => {
   return {
@@ -25,7 +27,10 @@ export const getAllPets = () => {
       .then(res => res.json())
       .then(pets => {
         if (pets.error) {
-          alert(pets.error);
+          // alert(pets.error);
+          toast.notify(pets.error, {
+            position: "bottom-right"
+          });
         } else {
           dispatch(setAllPets(pets.data)); // dispatch action creator
         }

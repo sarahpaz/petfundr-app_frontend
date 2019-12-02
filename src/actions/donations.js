@@ -1,4 +1,7 @@
 import { resetNewDonationForm } from "./newDonation";
+import toast from "toasted-notes";
+import "toasted-notes/src/styles.css";
+
 // synchronous actions creators
 export const setAllDonations = donations => {
   return {
@@ -31,7 +34,10 @@ export const getAllDonations = () => {
       .then(res => res.json())
       .then(donations => {
         if (donations.error) {
-          alert(donations.error);
+          // alert(donations.error);
+          toast.notify(donations.error, {
+            position: "bottom-right"
+          });
         } else {
           dispatch(setAllDonations(donations.data)); // dispatch action creator
         }
@@ -67,11 +73,17 @@ export const createDonation = donationData => {
       .then(res => res.json())
       .then(donation => {
         if (donation.error) {
-          alert(donation.error);
+          // alert(donation.error);
+          toast.notify(donation.error, {
+            position: "bottom-right"
+          });
         } else {
           dispatch(addDonation(donation.data)); // dispatch action creator
           dispatch(resetNewDonationForm());
-          alert("Thank you for your donation!");
+          // alert("Thank you for your donation!");
+          toast.notify("Thank you for your donation.", {
+            position: "bottom-right"
+          });
         }
       })
       .catch(console.log);

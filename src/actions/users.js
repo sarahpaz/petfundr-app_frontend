@@ -1,4 +1,6 @@
 // synchronous actions creators
+import toast from "toasted-notes";
+import "toasted-notes/src/styles.css";
 export const setAllUsers = users => {
   return {
     type: "SET_ALL_USERS", // matches the case in the reducer
@@ -25,7 +27,10 @@ export const getAllUsers = () => {
       .then(res => res.json())
       .then(users => {
         if (users.error) {
-          alert(users.error);
+          // alert(users.error);
+          toast.notify(users.error, {
+            position: "bottom-right"
+          });
         } else {
           dispatch(setAllUsers(users.data)); // dispatch action creator
         }
