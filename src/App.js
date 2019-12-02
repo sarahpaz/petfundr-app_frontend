@@ -10,8 +10,6 @@ import MainContainer from "./components/MainContainer/MainContainer.component";
 import PetList from "./components/PetListContainer/PetListContainer.component";
 import HomePage from "./components/HomePage/HomePage.component";
 import PetPage from "./components/PetPage/PetPage.component";
-import UserPage from "./components/UserPage/UserPage.component";
-import NewDonation from "./components/NewDonation/NewDonation.component";
 
 class App extends Component {
   componentDidMount() {
@@ -19,7 +17,7 @@ class App extends Component {
   }
 
   render() {
-    const { loggedIn, pets, users } = this.props;
+    const { loggedIn, pets } = this.props;
 
     return (
       <div className="App">
@@ -34,29 +32,10 @@ class App extends Component {
           <Route exact path="/pets" component={PetList} />
           <Route
             exact
-            path="/users/:id"
-            render={props => {
-              const user = users.find(
-                user => user.id === props.match.params.id
-              );
-              return <UserPage user={user} />;
-            }}
-          />
-          <Route
-            exact
             path="/pets/:id"
             render={props => {
               const pet = pets.find(pet => pet.id === props.match.params.id);
               return <PetPage pet={pet} />;
-            }}
-          />
-          <Route
-            exact
-            path="/donations/new"
-            // component={NewDonation}
-            render={props => {
-              const pet = pets.find(pet => pet.id === props.match.params.id);
-              return <NewDonation pet={pet} />;
             }}
           />
         </Switch>
