@@ -10,3 +10,8 @@
 .donation-container {
   padding-top: 1rem;
 }
+
+.pet-page-card {
+  max-width: 35em;
+  margin: 2em auto;
+}
