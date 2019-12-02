@@ -5,7 +5,7 @@ import { getAllUsers, clearAllUsers } from "./users";
 import { getAllDonations, clearDonations } from "./donations";
 // syncrhonous action creators - state is updated immediately
 export const setCurrentUser = user => {
-  console.log(user);
+  // console.log(user);
   return {
     type: "SET_CURRENT_USER", // matches the case in the reducer
     user // shorthand version of payload: user
@@ -32,7 +32,7 @@ export const login = credentials => {
     })
       .then(res => res.json())
       .then(user => {
-        console.log(user);
+        // console.log(user);
         if (user.error) {
           alert(user.error);
         } else {
