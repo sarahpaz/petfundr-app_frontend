@@ -5,6 +5,7 @@ import { getAllUsers, clearAllUsers } from "./users";
 import { getAllDonations, clearDonations } from "./donations";
 import toast from "toasted-notes";
 import "toasted-notes/src/styles.css";
+
 // syncrhonous action creators - state is updated immediately
 export const setCurrentUser = user => {
   // console.log(user);
