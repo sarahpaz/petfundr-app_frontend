@@ -3,6 +3,8 @@ import { getAllPets, clearAllPets } from "./pets.js";
 import { resetSignupForm } from "./signupForm";
 import { getAllUsers, clearAllUsers } from "./users";
 import { getAllDonations, clearDonations } from "./donations";
+import toast from "toasted-notes";
+import "toasted-notes/src/styles.css";
 // syncrhonous action creators - state is updated immediately
 export const setCurrentUser = user => {
   // console.log(user);
@@ -34,7 +36,10 @@ export const login = credentials => {
       .then(user => {
         // console.log(user);
         if (user.error) {
-          alert(user.error);
+          // alert(user.error);
+          toast.notify(user.error, {
+            position: "bottom-right"
+          });
         } else {
           dispatch(setCurrentUser(user)); // dispatch action creator
           dispatch(getAllPets());
@@ -72,7 +77,10 @@ export const getCurrentUser = () => {
       .then(res => res.json())
       .then(user => {
         if (user.error) {
-          alert(user.error);
+          // alert(user.error);
+          toast.notify(user.error, {
+            position: "bottom-right"
+          });
         } else {
           dispatch(setCurrentUser(user));
           dispatch(getAllPets());
@@ -100,7 +108,10 @@ export const signup = (credentials, history) => {
       .then(res => res.json())
       .then(user => {
         if (user.error) {
-          alert(user.error);
+          // alert(user.error);
+          toast.notify(user.error, {
+            position: "bottom-right"
+          });
         } else {
           dispatch(setCurrentUser(user.data));
           dispatch(resetSignupForm());
