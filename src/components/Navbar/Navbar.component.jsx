@@ -26,13 +26,6 @@ const NavHeader = ({ currentUser }) => {
           Pets
         </Link>
       ) : null}
-      {/* 
-			{currentUser ? (
-        // <Link href={`/users/${currentUser.data.id}`} className="nav-links"> //TODO: currentUser nested attributes change after refresh
-        //   USERNAME
-        // </Link>
-			) : null}
-			*/}
       {currentUser ? <Logout href="/logout">Logout</Logout> : null}
     </Navbar>
   );
