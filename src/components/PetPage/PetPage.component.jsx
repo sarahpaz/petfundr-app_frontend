@@ -2,24 +2,11 @@
 import React, { Component } from "react";
 import "./PetPage.styles.css";
 import Card from "react-bootstrap/Card";
-import ProgressBar from "react-bootstrap/ProgressBar";
 import NewDonation from "../NewDonation/NewDonation.component";
 
 class PetPage extends Component {
-  // initial state is total of current donations
-  state = {
-    donations: 40
-  };
-  // setState to total of donations + new donation amount
-  totalDonations = () => {
-    return this.setState({
-      donations: this.state.donations
-    });
-  };
-
   render() {
     const { pet } = this.props;
-
     return pet ? (
       <div className="pet-page">
         <h3>Meet {pet.attributes.name}!</h3>
@@ -34,12 +21,6 @@ class PetPage extends Component {
             <Card.Text>Age: {pet.attributes.age}</Card.Text>
             <Card.Text>Raise Goal: ${pet.attributes.goal}</Card.Text>
             <Card.Text>Owner: {pet.attributes.owner.username}</Card.Text>
-            <ProgressBar
-              striped
-              variant="info"
-              now={this.state.donations} //TODO:update to show donation total
-              style={{ width: "50%", margin: "auto" }}
-            />
 
             <NewDonation pet={pet} />
           </Card.Body>
