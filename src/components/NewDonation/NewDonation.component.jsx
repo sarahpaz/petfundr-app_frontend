@@ -58,7 +58,6 @@ class NewDonation extends Component {
       this.setState({ donations: newTotalDonations });
       // console.log(newTotalDonations);
     };
-
     const donationPercentage =
       (this.state.donations / this.props.pet.attributes.goal) * 100;
 
