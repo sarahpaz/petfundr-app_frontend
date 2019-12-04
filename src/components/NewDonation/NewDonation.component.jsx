@@ -54,7 +54,7 @@ class NewDonation extends Component {
         petId
       });
       const newTotalDonations =
-        this.state.donations + parseInt(e.target[0].value); //TODO: add value of new donation amount input
+        this.state.donations + parseInt(e.target[0].value);
       this.setState({ donations: newTotalDonations });
       // console.log(newTotalDonations);
     };
