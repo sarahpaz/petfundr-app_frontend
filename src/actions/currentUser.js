@@ -1,14 +1,14 @@
 import { resetLoginForm } from "./loginForm";
 import { getAllPets, clearAllPets } from "./pets.js";
 import { resetSignupForm } from "./signupForm";
-import { getAllUsers, clearAllUsers } from "./users";
+// import { getAllUsers, clearAllUsers } from "./users";
 import { getAllDonations, clearDonations } from "./donations";
 import toast from "toasted-notes";
 import "toasted-notes/src/styles.css";
 
 // syncrhonous action creators - state is updated immediately
 export const setCurrentUser = user => {
-  // console.log(user);
+  console.log(user);
   return {
     type: "SET_CURRENT_USER", // matches the case in the reducer
     user // shorthand version of payload: user
@@ -45,7 +45,7 @@ export const login = credentials => {
           dispatch(setCurrentUser(user)); // dispatch action creator
           dispatch(getAllPets());
           dispatch(resetLoginForm());
-          dispatch(getAllUsers());
+          // dispatch(getAllUsers());
           dispatch(getAllDonations());
         }
       })
@@ -56,7 +56,7 @@ export const login = credentials => {
 export const logout = () => {
   return dispatch => {
     dispatch(clearCurrentUser()); // dispatch clears the front end, fetch clears the back end (logout route)
-    dispatch(clearAllUsers());
+    // dispatch(clearAllUsers());
     dispatch(clearAllPets());
     dispatch(clearDonations());
     return fetch("http://localhost:3001/api/v1/logout", {
@@ -85,7 +85,7 @@ export const getCurrentUser = () => {
         } else {
           dispatch(setCurrentUser(user));
           dispatch(getAllPets());
-          dispatch(getAllUsers()); // dispatch action creator
+          // dispatch(getAllUsers());
           dispatch(getAllDonations());
         }
       })
