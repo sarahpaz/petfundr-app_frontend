@@ -1,6 +1,6 @@
 import toast from "toasted-notes";
 import "toasted-notes/src/styles.css";
-// synchronous actions creators
+// syncrhonous action creators - state is updated immediately
 export const setAllPets = pets => {
   return {
     type: "SET_ALL_PETS", // matches the case in the reducer
@@ -14,7 +14,7 @@ export const clearAllPets = () => {
   };
 };
 
-// asynchronous actions creators
+// asynchronous action creators -- requests to the backend are required first
 export const getAllPets = () => {
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/pets", {

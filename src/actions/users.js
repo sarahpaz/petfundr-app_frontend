@@ -1,4 +1,4 @@
-// synchronous actions creators
+// syncrhonous action creators - state is updated immediately
 import toast from "toasted-notes";
 import "toasted-notes/src/styles.css";
 export const setAllUsers = users => {
@@ -14,7 +14,7 @@ export const clearAllUsers = () => {
   };
 };
 
-// asynchronous actions creators
+// asynchronous action creators -- requests to the backend are required first
 export const getAllUsers = () => {
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/users", {

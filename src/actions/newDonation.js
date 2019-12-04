@@ -1,4 +1,4 @@
-// syncrhonous action creators
+// syncrhonous action creators - state is updated immediately
 export const updateNewDonationInfo = (name, value) => {
   const formData = { name, value };
   // console.log(formData);
@@ -13,5 +13,3 @@ export const resetNewDonationForm = () => {
     type: "RESET_NEW_DONATION_FORM"
   };
 };
-
-// asynchronous actions creators
