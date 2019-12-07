@@ -9,6 +9,7 @@ import { withRouter } from "react-router-dom";
 import ProgressBar from "react-bootstrap/ProgressBar";
 
 class NewDonation extends Component {
+  // useState
   constructor(props) {
     super(props);
     this.state = {
