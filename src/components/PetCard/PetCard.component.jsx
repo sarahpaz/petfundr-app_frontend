@@ -7,6 +7,14 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 class PetCard extends Component {
+  // state = {
+  //   counter: 0
+  // };
+
+  // handleOnClick = () => {
+  //   this.setState({ counter: this.state.counter + 1 });
+  // };
+
   render() {
     const { pet } = this.props;
     return (
@@ -32,6 +40,12 @@ class PetCard extends Component {
                 Donate
               </Link>
             </Button>
+
+            {/* 
+						<Button variant="success" onClick={this.handleOnClick}>
+              Vote {this.state.counter}
+						</Button>
+					*/}
           </Card.Body>
           <Card.Footer>
             <small className="text-muted">
